@@ -1,0 +1,14 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+<section class="page" id="contact">
+	<section class="map" id="map-wrapper"><div id="map" data-map="{{ post.get_field("address") }}"></div></section>
+	<section class="description">
+		<div>
+			<h1>{{ post.title }}</h1>
+			{{ post.content }}
+		</div>
+	</section>
+</section>
+
+{% endblock %}

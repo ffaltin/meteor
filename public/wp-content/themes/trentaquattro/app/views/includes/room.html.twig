@@ -8,7 +8,7 @@
 			<p><a href="mailto:info@trentaquattro.be" class="btn">Réserver</a></p>
 		</div>
 		<div class="picture">
-			<img src="{{site.theme.link}}/static/gfx/coffee.png" alt="Notre salle" />
+			<img src="{{ TimberImage(page.room.get_field("picture")).src }}" alt="Notre salle" />
 		</div>
 	</section>
 </section>

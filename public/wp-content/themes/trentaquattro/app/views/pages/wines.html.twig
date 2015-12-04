@@ -37,7 +37,7 @@
 			</div>
 		{% endfor %}
 		{# End of Alcohols #}
-		<p class="text-center"><a href="#" class="btn">Réserver</a></p>
+		<p class="text-center"><a href="{{ post.get_field("menu").url }}" target="_blank" class="btn">{{ __("Découvrir notre carte", "il-trentaquattro-page")}}</a></p>
 	</section>
 </section>
 {% endblock %}

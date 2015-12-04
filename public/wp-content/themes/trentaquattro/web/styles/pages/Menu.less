@@ -9,9 +9,15 @@
 		}
 	}
 
-	background: url(gfx/pasta.png) 0% 50% no-repeat, url(gfx/tomates.png) 100% 95% no-repeat;
+	background-image: url(gfx/pasta.png), url(gfx/tomates.png);
+	background-position: 0% 50%, 100% 95%;
+	background-repeat: no-repeat, no-repeat;
 	.btn {
 		margin-top: 25px;
 		margin-bottom: 25px;
+	}
+
+	.content {
+		background: rgba(255,255,255,0.6);
 	}
 }

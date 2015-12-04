@@ -1,7 +1,7 @@
 {% extends 'layouts/base.twig' %}
 
 {% block content %}
-<section class="page" id="menu">
+<section class="page" id="menu" style="background-image: url({{ TimberImage(post.get_field("pictureleft")).src }}), url({{ TimberImage(post.get_field("pictureright")).src }})">
 	<header style="background-image: url({{ post.thumbnail }});">
 		<h1 class="vcenter">{{ post.title }}</h1>
 	</header>

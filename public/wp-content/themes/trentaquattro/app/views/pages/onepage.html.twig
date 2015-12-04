@@ -3,10 +3,16 @@
 
 {# All menu are set here #}
 {% macro menu() %}
-	{% set pages = ["restaurant", "menu", "wines", "room", "contact"] %}
+	{% set pages = {
+			"restaurant": "Il Trentaquattro", 
+			"menu": "Notre carte", 
+			"wines": "Nos vins", 
+			"room": "Notre salle", 
+			"contact": "Nous contacter"
+		} %}
     <ul class="nav main-nav prevent">
-    	{% for page in pages %}
-			<li data-page="{{ page }}"><a href="#{{ page }}">{{ __("menu.lbl." ~ page, "il-trentaquattro-menu" ) }}</a></li>
+    	{% for page, label in pages %}
+			<li data-page="{{ page }}"><a href="#{{ page }}">{{ __(label, "il-trentaquattro-menu" ) }}</a></li>
 		{% endfor %}
 	</ul>
 {% endmacro %}

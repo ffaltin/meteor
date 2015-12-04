@@ -18,6 +18,7 @@ class PageController extends Controller {
 	const PAGE_WINES = 73;
 	const PAGE_ROOM = 103;
 	const PAGE_MENU = 112;
+	const PAGE_CONTACT = 125;
 
 	public function viewPersonAction() {
 		$pi = new TimberPost();
@@ -43,6 +44,7 @@ class PageController extends Controller {
 			"wine" => new TimberPost(self::PAGE_WINES),
 			"menu" => new TimberPost(self::PAGE_MENU),
 			"room" => new TimberPost(self::PAGE_ROOM),
+			"contact" => new TimberPost(self::PAGE_CONTACT),
 		];
 
 		$pi = new TimberPost();
@@ -60,6 +62,15 @@ class PageController extends Controller {
 		$data['wp_title'] = $pi->title();
 
 		return $this->render([ sprintf('pages/%s.html.twig', $specific) ], $data);
+	}
+
+
+	public function viewContactPageAction() {
+		$pi = new TimberPost();
+		$data['post'] = $pi;
+		$data['wp_title'] = $pi->title();
+
+		return $this->render([ sprintf('pages/%s.html.twig', "contact") ], $data);
 	}
 
 	/*

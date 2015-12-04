@@ -37,6 +37,7 @@ class Site extends TimberSite {
 		add_filter('get_twig', [ $this, 'addToTwig' ]) ;
 		add_filter( 'timber_context', [ $this, 'addToContext' ] );
 		// $this->registerPostTypes();
+		$this->addClientRole();
 		parent::__construct();
 		// Add Simple configuration
 		$this->configureSite();
@@ -171,5 +172,72 @@ class Site extends TimberSite {
 		    ->getFormFactory();
 
 		return $formFactory;
+	}
+
+	public function addClientRole() {
+		$result = add_role( 'client', __("Client"), [
+			"switch_themes" => false,
+			"edit_themes" => false,
+			"activate_plugins" => false,
+			"edit_plugins" => false,
+			"edit_users" => false,
+			"edit_files" => true,
+			"manage_options" => false,
+			"moderate_comments" => false,
+			"manage_categories" => false,
+			"manage_links" => false,
+			"upload_files" => true,
+			"import" => false,
+			"unfiltered_html" => false,
+			"edit_posts" => false,
+			"edit_others_posts" => false,
+			"edit_published_posts" => false,
+			"publish_posts" => false,
+			"edit_pages" => true,
+			"read" => true,
+			"level_10" => false,
+			"level_9" => false,
+			"level_8" => false,
+			"level_7" => false,
+			"level_6" => false,
+			"level_5" => false,
+			"level_4" => false,
+			"level_3" => false,
+			"level_2" => false,
+			"level_1" => false,
+			"level_0" => false,
+			"edit_others_pages" => true,
+			"edit_published_pages" => true,
+			"publish_pages" => true,
+			"delete_pages" => false,
+			"delete_others_pages" => false,
+			"delete_published_pages" => false,
+			"delete_posts" => false,
+			"delete_others_posts" => false,
+			"delete_published_posts" => false,
+			"delete_private_posts" => false,
+			"edit_private_posts" => false,
+			"read_private_posts" => false,
+			"delete_private_pages" => false,
+			"edit_private_pages" => false,
+			"read_private_pages" => false,
+			"delete_users" => false,
+			"create_users" => false,
+			"unfiltered_upload" => false,
+			"edit_dashboard" => true,
+			"update_plugins" => false,
+			"delete_plugins" => false,
+			"install_plugins" => false,
+			"update_themes" => false,
+			"install_themes" => false,
+			"update_core" => false,
+			"list_users" => false,
+			"remove_users" => false,
+			"add_users" => false,
+			"promote_users" => false,
+			"edit_theme_options" => false,
+			"delete_themes" => false,
+			"export" => false,
+		]);
 	}
 }
