@@ -1,0 +1,111 @@
+#wines {
+	> header {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		text-align: center;
+		img {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+	> .content {
+		h2 {
+			color:  @color-pri;
+			font-size: 35px;
+			text-align: center;
+			margin-bottom: 50px;
+		}
+		padding: 60px 0;
+		.quote {
+			h2 {
+				color: darken(@color-sec, 35%);
+				margin-bottom: 10px;
+				text-align: center;
+			}
+			p {
+				font-size: 25px;
+				text-align: center;
+			}
+			margin-bottom: 50px;
+			.quoteup, .quotebot {
+				display: inline-block;
+				width: (95px*0.75);
+				height: (75px*0.75);
+			}
+
+			.quoteup {
+				float: left;
+				background: url(gfx/quotup.png) center center no-repeat;
+				background-size: contain;
+				position: relative;
+				top: -20px;
+			}
+
+			.quotebot {
+				background: url(gfx/quotebot.png) center center no-repeat;
+				background-size: contain;
+			}
+		}
+
+		.wine-category {
+			margin-bottom: 80px;
+			> h2 {
+				text-align: left;
+				font-size: 25px;
+				margin: 0;
+				padding: 0;
+				@media screen and (max-width: 768px) {
+					width: 90%;
+					margin-left: 5%;
+				}
+			}
+			ul {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				li.wine {
+					display: inline-block;
+					vertical-align: middle;
+					width: 40%;
+					&:nth-child(even) {
+						margin-left: 20%;
+					}
+					@media screen and (max-width: 768px) {
+						&, &:nth-child(even) {
+							width: 90%;
+							margin-left: 5%;
+						}
+					}
+					> h3 {
+						background: url(gfx/vin.png) center left no-repeat;
+						padding-left: 90px;
+						font-size: 20px;
+						text-transform: uppercase;
+					}
+					span {
+						text-transform: uppercase;
+						display: inline-block;
+						vertical-align: middle;
+						font-size: 19px;
+						&.price {
+							color: @color-pri;
+							width: 25%;
+							font-weight: bold;
+						}
+						&.year {
+							font-style: italic;
+							color: #212121;
+							width: 25%;
+						}
+						&.type {
+							color: #000;
+							font-weight: bold;
+							width: 45%;
+						}
+					}
+				}
+			}
+		}
+	}
+}

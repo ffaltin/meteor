@@ -1,0 +1,261 @@
+@import "../lib/polyfill/reset.less";
+@import "http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css";
+@import "fonts/guideline/font.css";
+
+@import (less) "../lib/owl/owl.carousel.css";
+@import (less) "../lib/owl/owl.theme.css";
+@import (less) "../lib/owl/owl.transitions.css";
+
+/*
+ * Load all required fonts
+ */
+
+/*
+ * Configuration file
+ */
+@import "Config.less";
+
+/*
+ * Load all Plugins
+ */
+// @import "../../lib/FormStone/Styles.less";
+
+/*
+ * Ui Style
+ */ 
+@import "ui/Common.less";
+@import "ui/Footer.less";
+@import "ui/Form.less";
+@import "ui/Table.less";
+@import "ui/Screen.less";
+@import "ui/Header.less";
+@import "ui/Scene.less";
+
+/*
+ * Specific Page
+ */ 
+@import "pages/Restaurant.less";
+@import "pages/Contact.less";
+@import "pages/Menu.less";
+@import "pages/Picture.less";
+@import "pages/Room.less";
+@import "pages/Wines.less";
+
+.page {
+	> header {
+		min-height: 400px;
+		> h1 {
+			margin: 0;
+			color: #fff;
+			font-family: "Nexa Rust Slab Black Shadow 01";
+			font-size: 55px;
+		}
+	}
+	> .content {
+		padding: 30px 0;
+		max-width: @commonGridSize;
+		width: 100%;
+		margin: 0 auto;
+	}
+}
+
+.btn {
+	display: inline-block;
+	padding: 8px 25px;
+	border: 1px solid @color-pri;
+	color: @color-pri;
+	font-size: 20px;
+	text-decoration: none;
+	background: #fff;
+	transition: 0.15s all ease-in;
+	&:hover, &:focus {
+		color: #fff;
+		background: @color-pri;
+	}
+	& + .btn {
+		margin-left: 15px;
+	}
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+#main-footer {
+	background: #292929;
+	color: #fff;
+	padding: 40px 20px;
+	text-align: center;
+	p {
+		margin: 0;
+		font-weight: bold;
+		font-size: 18px;
+		&:first-child {
+			margin-bottom: 10px;
+		}
+		.fa {
+			font-size: 24px;
+		}
+	}
+	a {
+		color: #fff;
+	}
+}
+
+#header {
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	right: 0;
+	#navigation {
+		text-align: center;
+		.main-nav {
+			transition: 0.2s all ease-in;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			@bg: darken(@color-sec, 35%);
+			background: rgba(red(@bg),green(@bg),blue(@bg),0.25);
+			> li {
+				transition: 0.2s all ease-in;
+				display: inline-block;
+				vertical-align: top;
+				margin-left: 10px;
+				&:first-child {
+					margin-left: 0;
+					&:before {
+						content: "";
+						padding-right: 0;
+					}
+				} 
+				&:before {
+					content: "•";
+					font-size: 30px;
+					color: #fff;
+					position: relative;
+					top: 3px;
+					padding-right: 10px;
+				}
+				a {
+					color: #fff;
+					text-decoration: none;
+					font-size: 16px;
+					text-transform: uppercase;
+					font-weight: bold;
+					transition: 0.2s all ease-in;
+					&:hover, &:focus {
+						color: @color-sec;
+					}
+				}
+				&:hover {
+					ul {
+						display: block;
+					}
+				}
+				ul {
+					display: none;
+					padding: 0;
+					padding-top: 15px;
+					padding-bottom: 15px;
+				}
+			}
+		}
+	}
+}
+
+.tabulator-header {
+	text-align: center;
+	li {
+		display: inline-block;
+		vertical-align: middle;
+		padding: 0 20px;
+		a {
+			color: @color-sec;
+			text-decoration: none;
+			font-weight: bold;
+			font-size: 1.3em;
+			&:hover, &:focus, &.current {
+				color: @color-pri;
+			}
+			outline: 0;
+		}
+	}
+}
+
+.tabulator-content {
+	&.menu {
+		text-align: center;
+		h1, h2 {
+			margin: 0;
+			color: @color-pri;
+			font-family: "Nexa Rust Slab Black Shadow 01";
+			font-size: 22px;
+			margin-top: 30px;
+			margin-bottom: 15px;
+		}
+		p {
+			font-size: 14px;
+		}
+		strong, b {
+			color: @color-pri;
+			font-size: 16px;
+		}
+	}
+
+	&.category {
+		margin-top: 30px;
+		margin-bottom: 30px;
+		ul {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			li.menu {
+				display: inline-block;
+				vertical-align: middle;
+				width: 40%;
+				margin-bottom: 15px;
+				&:nth-child(even) {
+					margin-left: 20%;
+				}
+				@media screen and (max-width: 768px) {
+					&, &:nth-child(even) {
+						width: 90%;
+						margin-left: 5%;
+					}
+				}
+				> h3 {
+					font-size: 20px;
+					margin-bottom: 0px;
+					text-transform: uppercase;
+				}
+				> .description {
+					> div {
+						display: inline-block;
+						vertical-align: top;
+						font-size: 16px;
+						&.price {
+							color: @color-pri;
+							width: 25%;
+							font-weight: bold;
+							text-align: right;
+						}
+						&.text {
+							font-style: italic;
+							color: #000;
+							width: 65%;
+							margin-right: 5%;
+							p {
+								margin: 0;
+								margin-bottom: 10px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,43 @@
+<section class="page" id="menu">
+	<header style="background-image: url({{ page.menu.thumbnail }});">
+		<h1 class="vcenter">{{ page.menu.title }}</h1>
+	</header>
+	<section class="content has-tabulator">
+		{# Display All alcohols #}
+		<div class="tabulator-content active menu" data-tab="Nos menus" data-tab-id="tab-menu">
+			<div class="owl-carousel owl-theme">
+				{% for item in page.menu.get_field("menu") %}
+					<div class="menu item">
+						<h1>{{item.title}}</h1>
+						{{ item.content }}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		{% for category, label in {
+			"starters" : "Entrées",
+			"pasta" : "Pâtes",
+			"meat" : "Viandes",
+			"fish" : "Poissons",
+			"risotto" : "Risotto",
+			"pizzas" : "Pizzas",
+			"desserts" : "Desserts"
+		} %}
+			<div class="tabulator-content category" data-tab="{{label}}" data-tab-id="tab-{{category}}">
+				<ul>
+					{% for item in page.menu.get_field(category) %}
+						<li class="menu">
+							<h3>{{item.title}}</h3>
+							<div class="description">
+								<div class="text">{{item.description}}</div>
+								<div class="price">{{item.price}}</div>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% endfor %}
+		{# End of Alcohols #}
+		<p class="text-center"><a href="mailto:info@trentaquattro.be" class="btn">Réserver</a></p>
+	</section>
+</section>

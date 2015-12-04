@@ -1,0 +1,91 @@
+.coming-soon {
+	font-family: 'Old Standard TT', serif;
+	img {
+		max-width: 100%;
+	}
+	#scene {
+		.success.flash {
+			margin-top: 20px;
+			background: @color-pri;
+			color: #111;
+			padding: 8px 0;
+			text-indent: 20px;
+		}
+
+		color: #fff;
+		background: url(gfx/background.png);
+		position: fixed;
+		top: 15px;
+		bottom: 15px;
+		left: 15px;
+		right: 15px;
+		overflow: auto;
+		padding-top: 30px;
+		padding-left: 10%;
+		padding-right: 10%;
+		h1 {
+			margin-top: 100px;
+			margin-bottom: 50px;
+		}
+		p {
+			max-width: 500px;
+		}
+		.row-wrapper {
+			margin-top: 10px;
+			max-width: 380px;
+			@media screen and (max-width: 500px) {
+				margin-left: 0px;
+				max-width: 300px;
+			}
+			width: 100%;
+			display: inline-block;
+			vertical-align: top;
+			label {
+				display: none;
+			}
+			input {
+				border: 1px solid @color-pri;
+				background: none;
+				width: 100%;
+				max-width: 350px;
+				padding: 7px 15px;
+				color: #fff;
+				text-align: right;
+				@media screen and (max-width: 500px) {
+					margin-left: 0px;
+					max-width: 255px;
+				}
+			}
+		}
+		.row-submit {
+			margin-top: 20px;
+			max-width: 130px;
+			margin-left: 20px;
+			margin-bottom: 50px;
+			width: 100%;
+			display: inline-block;
+			vertical-align: top;
+			@media screen and (max-width: 500px) {
+				margin-left: 0px;
+				max-width: 300px;
+			}
+			input {
+				border: 1px solid @color-pri;
+				background: none;
+				width: 100%;
+				max-width: 100px;
+				padding: 7px 0;
+				color: #fff;
+				text-align: center;
+				@media screen and (max-width: 500px) {
+					margin-left: 0px;
+					max-width: 300px;
+				}
+				&:hover {
+					background: @color-pri;
+					color: #222;
+				}
+			}
+		}
+	}
+}

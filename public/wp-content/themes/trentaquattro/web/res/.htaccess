@@ -1,0 +1,31 @@
+# Access control
+Order Allow,Deny
+Allow from All
+
+# File handling
+Options -Indexes
+Options +SymLinksIfOwnerMatch
+
+# Disable PHP except for index.php
+php_flag engine off
+<FilesMatch "index.php">
+	php_flag engine on
+</FilesMatch>
+
+# Activate URL rewriting
+RewriteEngine On
+
+# Force www.
+#RewriteCond %{HTTP_HOST} !^www [NC]
+#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+# Forbid www.
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# Let access to stuff in /public/
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^[^/].*$ - [L]
+
+# Full rewriting to the bootstrap
+RewriteRule ^.*$ index.php [L]

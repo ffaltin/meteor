@@ -1,0 +1,39 @@
+<section class="page" id="wines">
+	<header style="background-image: url({{ page.wine.thumbnail }});">
+		<h1 class="vcenter">{{ page.wine.title }}</h1>
+	</header>
+	<section class="content">
+		<div class="quote">
+			<span class="quoteup"></span>
+			{{ page.wine.content }}
+			<div class="text-right">
+				<span class="quotebot"></span>
+			</div>
+		</div>
+		<h2>{{ page.wine.get_field("subtitle") }}</h2>
+
+		{# Display All alcohols #}
+		{% for category, label in {
+			"bollicine": "Bollicine / Bulles",
+			"bianchi" : "Bianchi / Blancs"
+		} %}
+			<div class="wine-category">
+				<h2>{{ label }}</h2>
+				<ul>
+					{% for item in page.wine.get_field(category) %}
+						<li class="wine">
+							<h3>{{item.label}}</h3>
+							<p>
+								<span class="type">{{item.type}}</span>
+								<span class="year">{{item.year}}</span>
+								<span class="price">{{item.price}}</span>
+							</p>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% endfor %}
+		{# End of Alcohols #}
+		<p class="text-center"><a href="{{ page.wine.get_field("menu").url }}" target="_blank" class="btn">{{ __("Découvrir notre carte", "il-trentaquattro-page")}}</a></p>
+	</section>
+</section>

@@ -1,0 +1,16 @@
+
+@font-face {
+  font-family: 'Trade Gothic';
+  src: url('TradeGothicLTStd-BdCn20.eot?#iefix') format('embedded-opentype'),  url('TradeGothicLTStd-BdCn20.otf')  format('opentype'),
+	     url('TradeGothicLTStd-BdCn20.woff') format('woff'), url('TradeGothicLTStd-BdCn20.ttf')  format('truetype'), url('TradeGothicLTStd-BdCn20.svg#TradeGothicLTStd-BdCn20') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Trade Gothic';
+  src: url('TradeGothicLTStd-Cn18.eot?#iefix') format('embedded-opentype'),  url('TradeGothicLTStd-Cn18.otf')  format('opentype'),
+	     url('TradeGothicLTStd-Cn18.woff') format('woff'), url('TradeGothicLTStd-Cn18.ttf')  format('truetype'), url('TradeGothicLTStd-Cn18.svg#TradeGothicLTStd-Cn18') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

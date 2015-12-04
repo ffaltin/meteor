@@ -1,0 +1,29 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article>
+			<section class="article-content">
+				<h1 class="article-h1">{{post.title}}</h1>
+				<div class="article-body">
+					{{post.content}}
+				</div>
+			</section>
+		</article>
+	</div>
+	<form method="post" action="">
+		<input type="text" name="email" />
+		<input type="submit" />
+	</form>
+
+	<form action="#" method="post">
+	    {{ form_widget(form) }}
+	    <input type="submit" />
+	</form>
+
+	{% for item in post.get_field('test') %}
+		<h1>{{ item.name }}</h1>
+		<p><img src="{{ TimberImage(item.picture).src|resize(500, 400) }}" alt="{{ item.name }}" /></p>
+	{% endfor %}
+
+{% endblock %}

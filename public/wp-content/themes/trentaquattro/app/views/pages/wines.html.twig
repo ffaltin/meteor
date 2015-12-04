@@ -1,0 +1,43 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+<section class="page" id="wines">
+	<header style="background-image: url({{ post.thumbnail }});">
+		<h1 class="vcenter">{{ post.title }}</h1>
+	</header>
+	<section class="content">
+		<div class="quote">
+			<span class="quoteup"></span>
+			{{ post.content }}
+			<div class="text-right">
+				<span class="quotebot"></span>
+			</div>
+		</div>
+		<h2>{{ post.get_field("subtitle") }}</h2>
+
+		{# Display All alcohols #}
+		{% for category, label in {
+			"bollicine": "Bollicine / Bulles",
+			"bianchi" : "Bianchi / Blancs"
+		} %}
+			<div class="wine-category">
+				<h2>{{ label }}</h2>
+				<ul>
+					{% for item in post.get_field(category) %}
+						<li class="wine">
+							<h3>{{item.label}}</h3>
+							<p>
+								<span class="type">{{item.type}}</span>
+								<span class="year">{{item.year}}</span>
+								<span class="price">{{item.price}}</span>
+							</p>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% endfor %}
+		{# End of Alcohols #}
+		<p class="text-center"><a href="#" class="btn">Réserver</a></p>
+	</section>
+</section>
+{% endblock %}

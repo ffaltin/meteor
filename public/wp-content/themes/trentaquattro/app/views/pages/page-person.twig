@@ -1,0 +1,23 @@
+{% extends 'layouts/base.twig' %}
+{% block content %}
+<section class="bio-container">
+	<div class="bio-content {{post.post_name}}">
+		<div class="bio-wrap">
+			<h1 class="bio-name">
+				{{post.post_title}}
+			</h1>
+			<p class="bio-txt">
+				{{post.post_content}}
+			</p>
+			<p class="bio-txt">
+				<img src="{{ post.person.picture.sizes.large }}" />
+			</p>
+			<ul class="social-list">
+				{% for link in post.links %}
+					<li class="social-item ss-icon {{link.class}}"> <a href="{{link.link_url}}" target="_blank" class="icon-{{link.icon}} "> {{link.link_title}}</a> </li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</section>
+{% endblock %}

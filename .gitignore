@@ -1,0 +1,23 @@
+#-----------------------------------------------------------------------
+# Application local files
+#-----------------------------------------------------------------------
+
+/public/wp-config.php
+/public/wp-content/uploads/*
+/public/wp-content/themes/epegon/app/config/*
+
+#-----------------------------------------------------------------------
+# Developer shit
+#-----------------------------------------------------------------------
+
+/.local/
+/nbproject/
+.DS_Store
+Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+/logfile
+/node_modules
+Gruntfile.js
+package.json

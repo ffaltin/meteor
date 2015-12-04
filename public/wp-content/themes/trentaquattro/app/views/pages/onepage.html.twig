@@ -1,0 +1,24 @@
+{% extends 'layouts/base.twig' %}
+{% import _self as m %}
+
+{# All menu are set here #}
+{% macro menu() %}
+	{% set pages = ["restaurant", "menu", "wines", "room", "contact"] %}
+    <ul class="nav main-nav prevent">
+    	{% for page in pages %}
+			<li data-page="{{ page }}"><a href="#{{ page }}">{{ __("menu.lbl." ~ page, "il-trentaquattro-menu" ) }}</a></li>
+		{% endfor %}
+	</ul>
+{% endmacro %}
+
+{% block menu %}
+	{{ m.menu("list") }}
+{% endblock %}
+
+{% block content %}
+	{% include 'includes/restaurant.html.twig' %}
+	{% include 'includes/menu.html.twig' %}
+	{% include 'includes/wines.html.twig' %}
+	{% include 'includes/room.html.twig' %}
+	{% include 'includes/contact.html.twig' %}
+{% endblock %}

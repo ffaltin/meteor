@@ -1,0 +1,4 @@
+CREATE TABLE wp_mailinglist (
+	id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	email VARCHAR(250)
+);
