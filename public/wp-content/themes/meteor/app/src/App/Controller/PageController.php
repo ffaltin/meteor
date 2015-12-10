@@ -12,42 +12,6 @@ use TimberImage;
 
 class PageController extends Controller {
 
-	/**
-	 * Map to the real page ID
-	**/
-	const PAGE_WINES = 73;
-	const PAGE_ROOM = 103;
-	const PAGE_MENU = 112;
-	const PAGE_CONTACT = 125;
-
-	/**
-	 * @return Response
-	**/
-	public function viewOnePageAction() {
-
-		$data["page"] = [
-			"wine" => new TimberPost(self::PAGE_WINES),
-			"menu" => new TimberPost(self::PAGE_MENU),
-			"room" => new TimberPost(self::PAGE_ROOM),
-			"contact" => new TimberPost(self::PAGE_CONTACT),
-		];
-
-		$pi = new TimberPost();
-
-		$data['post'] = $pi;
-		$data['wp_title'] = $pi->title();
-
-		$form = $this->getFormFactory()
-			->createBuilder(new \App\Form\ContactForm(),[])
-			->getForm();
-
-		$this->sendEmailFromContactForm($form);
-		$data["form"] = $form->createView();
-
-		return $this->render([ 'pages/onepage.html.twig' ], $data);
-	}
-
-
 	public function viewContentPageAction($specific = "content") {
 		$pi = new TimberPost();
 		$data['post'] = $pi;
@@ -69,13 +33,6 @@ class PageController extends Controller {
 			->createBuilder(new \App\Form\ContactForm(),[])
 			->getForm();
 
-		$this->sendEmailFromContactForm($form);
-		$data["form"] = $form->createView();
-		
-		return $this->render([ sprintf('pages/%s.html.twig', "contact") ], $data);
-	}
-
-	protected function sendEmailFromContactForm($form) {
 		$request = $this->getRequest();
 		$session = $this->getSession();
 		if ($request->isPost()) {
@@ -85,7 +42,7 @@ class PageController extends Controller {
 	    			$formData = $form->getData();
 
 					$message = \Swift_Message::newInstance()
-					->setSubject("Trentaquattro :: Contact")
+					->setSubject("Meteor :: Contact")
 					->setFrom(array($formData["email"] => $formData["firstname"] . " " . $formData["lastname"] ))
 					->setTo(array('ff@guanako.be'))
 					->setBody($formData["message"]);
@@ -94,7 +51,11 @@ class PageController extends Controller {
 	    		}
 			}
 		}
+		$data["form"] = $form->createView();
+		
+		return $this->render([ sprintf('pages/%s.html.twig', "contact") ], $data);
 	}
+
 
 	/*
 	 * Display the Coming Soon Template
