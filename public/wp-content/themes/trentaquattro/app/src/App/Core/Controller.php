@@ -33,6 +33,14 @@ class Controller {
 		return $this->context["services"]->get("request");
 	}
 
+	public function getSession() {
+		return $this->context["services"]->get("session");
+	}
+
+	public function getMailer() {
+		return $this->context["services"]->get("mailer");
+	}
+
 	public function getFormFactory() {
 		return $this->context["services"]->get("formFactory");
 	}

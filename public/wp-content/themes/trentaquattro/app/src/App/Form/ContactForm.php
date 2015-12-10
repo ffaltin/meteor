@@ -11,11 +11,6 @@ use Symfony\Component\Validator\ExecutionContextInterface;
 use Symfony\Component\Form\FormError;
 
 class ContactForm extends AbstractType {
-	protected $db;
-
-	public function __construct($db) {
-		$this->db = $db;
-	}
 
 	public function buildForm(FormBuilderInterface $builder, array $options ) {
 		$builder
@@ -35,6 +30,11 @@ class ContactForm extends AbstractType {
 				'constraints' => [
 					new Assert\NotBlank(),
 					new Assert\Email()
+				],
+			])
+			->add('message', 'textarea', [
+				'constraints' => [
+					new Assert\NotBlank()
 				],
 			])
 		;

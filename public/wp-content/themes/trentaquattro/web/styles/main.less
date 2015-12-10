@@ -262,3 +262,50 @@
 		}
 	}
 }
+
+form {
+	#contact_form {
+		> div {
+			&:first-child {
+				width: 48%;
+				display: inline-block;
+				vertical-align: top;
+				margin-right: 4%;
+				& + div {
+					vertical-align: top;
+					display: inline-block;
+					width: 48%;
+				}
+			}
+			margin-bottom: 10px;
+			> label {
+				display: block;
+			}
+			> input[type=text], > input[type=email], > textarea {
+				background: #212121;
+				border: 0;
+				padding: 5px 10px;
+				width: 100%;
+				color: #fff;
+			}
+			> textarea {
+				min-height: 60px;
+				max-width: 100%;
+				max-height: 220px;
+			}
+		}
+	}
+	input[type=submit] {
+		display: inline-block;
+		padding: 8px 25px;
+		border: 0;
+		color: #fff;
+		text-decoration: none;
+		background: @color-pri;
+		transition: 0.15s all ease-in;
+		&:hover, &:focus {
+			color: @color-pri;
+			background: #fff;
+		}
+	}
+}

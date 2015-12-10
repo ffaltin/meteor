@@ -4,6 +4,11 @@
 		<div>
 			<h1>{{ page.contact.title }}</h1>
 			{{ page.contact.content }}
+
+			<form action="#" method="post">
+			    {{ form_widget(form) }}
+			    <input type="submit" value="{{ __("Nous contacter") }}" />
+			</form>
 		</diV>
 	</section>
 </section>

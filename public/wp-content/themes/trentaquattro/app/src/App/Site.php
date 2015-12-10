@@ -14,6 +14,7 @@ use Symfony\Bridge\Twig\Form\TwigRenderer;
 use Symfony\Component\Translation\Translator;
 use App\Core\Database;
 use App\Core\Request;
+use App\Core\Session;
 use App\Core\ServiceCollection;
 
 use TimberSite;
@@ -83,6 +84,8 @@ class Site extends TimberSite {
 		$this->services->add("mailer", $this->addMailerService());
 		$this->services->add("formFactory", $this->addSymfonyFormService());
 		$this->services->add("db", $this->addDatabaseService());
+		/* Start session */
+		$this->services->add("session", (new Session("trentaquattro"))->start());
 		$context["services"] = $this->services;
 		return $context;
 	}
